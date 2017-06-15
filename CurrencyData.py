@@ -26,9 +26,9 @@ class CurrencyData(object):
     @staticmethod
     def _parse_time_for_site(stime):
         if isinstance(stime, datetime.datetime):
-            result = str(stime.timestamp()).split('.')[0] + '000'
+            result = str((stime-datetime.datetime(1970,1,1)).total_seconds()).split('.')[0] + '000'
         else:
-            result = str(datetime.datetime.strptime(stime, "%m/%d/%Y-%H:%M:%S").timestamp()).split('.')[0] + '000'
+            result = str((datetime.datetime.strptime(stime, "%m/%d/%Y-%H:%M:%S")-datetime.datetime(1970,1,1)).total_seconds()).split('.')[0] + '000'
         return result
 
     def _retrieve_data(self):
