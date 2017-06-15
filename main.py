@@ -1,6 +1,7 @@
 from CurrencyData import CurrencyData
 import matplotlib.pyplot as plt
 
+# trying a small change
 
 def main():
     ethereum = CurrencyData()
